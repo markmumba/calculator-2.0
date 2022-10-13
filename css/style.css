@@ -7,7 +7,7 @@ h1 {
   font-size: 3rem;
 }
 p {
-  color: rgb(253, 251, 251);
+  color: rgb(255, 255, 255);
   font-size: 3rem;
 }
 
@@ -21,4 +21,10 @@ p {
 
 .calculator {
   padding-top: 8rem;
+}
+
+.answer {
+  padding-left: 2rem;
+  background-color: #fff;
+  box-shadow: 20px 10px 10px rgb(29, 29, 29);
 }

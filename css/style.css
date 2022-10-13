@@ -3,20 +3,22 @@ body {
   background-color: #3e4a4f;
 }
 h1 {
-  color: #fff;
-  font-size: 4rem;
+  color: rgb(250, 250, 250);
+  font-size: 3rem;
 }
-p{
-    color: #fff;
-    font-size: 3rem;
+p {
+  color: rgb(253, 251, 251);
+  font-size: 3rem;
 }
 
 .btn-circle.btn-xl {
-  width: 100px;
-  height: 100px;
-  padding: 13px 18px;
+  width: 70px;
+  height: 70px;
   border-radius: 60px;
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
 }
 
+.calculator {
+  padding-top: 8rem;
+}

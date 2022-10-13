@@ -1,6 +1,7 @@
-let numbers = document.querySelectorAll('.btn');
-let operators = document.querySelectorAll('.btnx');
-let equalButton = document.querySelector('.btns');
+let numbers = document.querySelectorAll('.numbers');
+let operators = document.querySelectorAll('.operators');
+let equalButton = document.querySelector('.equal-sign');
+let clearButton = document.querySelector('.clear');
 
 let inputArea = document.querySelector('.input-area');
 
@@ -13,7 +14,6 @@ numbers.forEach(function (number) {
         e.preventDefault();
         digits += number.textContent;
         inputArea.innerHTML += number.textContent;
-        console.log(digits);
     });
 
 });
@@ -21,35 +21,38 @@ numbers.forEach(function (number) {
 operators.forEach(function (operator) {
     operator.addEventListener('click', function (e) {
         e.preventDefault();
-        inputArea.innerHTML += " " + operator.innerHTML +" ";
-        list.push(digits,operator.textContent);
-        digits ='';
-        console.log(list);
+        inputArea.innerHTML += " " + operator.innerHTML + " ";
+        list.push(digits, operator.textContent);
+        digits = '';
     });
-    });
+});
 
 
 equalButton.addEventListener('click', function (e) {
     e.preventDefault();
     list.push(digits);
-    console.log(list);
     let result = calculateResult(list);
     inputArea.innerHTML = result;
-    console.log(result);
+});
 
+clearButton.addEventListener('click', function (e) {    
+    e.preventDefault();
+    list.length = 0;
+    digits = '';
+    inputArea.innerHTML = '';
 });
 
 
-function calculateResult(list){
+function calculateResult(list) {
 
-    let s= list[0];
+    let s = list[0];
     let value = parseInt(s);
     let sum = value;
-    for (let i=2; i<list.length; i=i+2) {
-        s=list[i];
+    for (let i = 2; i < list.length; i = i + 2) {
+        s = list[i];
         value = parseInt(s);
 
-        let operator = list[i-1];
+        let operator = list[i - 1];
 
         if (operator == ' + ') {
             sum += value;
@@ -57,7 +60,7 @@ function calculateResult(list){
         else if (operator == ' - ') {
             sum -= value
         }
-        else if (operator == ' * ') { 
+        else if (operator == ' * ') {
             sum *= value;
         }
         else if (operator === ' / ') {
@@ -67,7 +70,7 @@ function calculateResult(list){
             console.log("Not applicable");
         }
     }
-    
+
     return sum;
 
 }

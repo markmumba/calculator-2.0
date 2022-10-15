@@ -2,8 +2,8 @@ let numbers = document.querySelectorAll('.numbers');
 let operators = document.querySelectorAll('.operators');
 let equalButton = document.querySelector('.equal-sign');
 let clearButton = document.querySelector('.clear');
-
 let inputArea = document.querySelector('.input-area');
+
 
 let digits = '';
 let list = [];
@@ -18,6 +18,7 @@ numbers.forEach(function (number) {
 
 });
 
+
 operators.forEach(function (operator) {
     operator.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,11 +28,12 @@ operators.forEach(function (operator) {
         } else {
             list.push(digits, operator.textContent);
         }
-
         digits = '';
-        console.log(list);
+
     });
 });
+
+
 equalButton.addEventListener('click', function (e) {
     e.preventDefault();
     list.push(digits);
@@ -39,10 +41,8 @@ equalButton.addEventListener('click', function (e) {
     inputArea.innerHTML = result.toString();
     list.length = 0;
     digits = '';
-    console.log(digits);
-    console.log(list);
     list.push(result);
-    console.log(list);
+
 });
 
 
@@ -67,13 +67,13 @@ function calculateResult(list) {
 
         let operator = list[i - 1];
 
-        if (operator == ' + ') {
+        if (operator === ' + ') {
             sum += value;
         }
-        else if (operator == ' - ') {
+        else if (operator === ' - ') {
             sum -= value
         }
-        else if (operator == ' * ') {
+        else if (operator === ' * ') {
             sum *= value;
         }
         else if (operator === ' / ') {

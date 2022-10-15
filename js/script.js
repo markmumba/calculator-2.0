@@ -22,18 +22,31 @@ operators.forEach(function (operator) {
     operator.addEventListener('click', function (e) {
         e.preventDefault();
         inputArea.innerHTML += " " + operator.innerHTML + " ";
-        list.push(digits, operator.textContent);
+        if (!digits) {
+            list.push(operator.textContent);
+        } else {
+            list.push(digits, operator.textContent);
+        }
+
         digits = '';
+        console.log(list);
     });
 });
-
-
 equalButton.addEventListener('click', function (e) {
     e.preventDefault();
     list.push(digits);
     let result = calculateResult(list);
-    inputArea.innerHTML = result;
+    inputArea.innerHTML = result.toString();
+    list.length = 0;
+    digits = '';
+    console.log(digits);
+    console.log(list);
+    list.push(result);
+    console.log(list);
 });
+
+
+
 
 clearButton.addEventListener('click', function (e) {    
     e.preventDefault();
